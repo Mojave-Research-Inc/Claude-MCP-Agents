@@ -1,0 +1,19 @@
+{
+  "name": "adjudicator-mcp",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p .",
+    "dev": "node --enable-source-maps dist/server.js"
+  },
+  "dependencies": {
+    "cross-fetch": "^4.0.0",
+    "typescript": "^5.9.2"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@types/node": "^24.5.2"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "name": "claude-mcp-agents",
+  "version": "1.0.0",
+  "description": "Complete collection of Model Context Protocol (MCP) servers and specialized agents for Claude Code",
+  "main": "install.sh",
+  "scripts": {
+    "install": "./install.sh",
+    "test": "echo \"Run tests with: npm run test:mcp && npm run test:agents\"",
+    "test:mcp": "cd mcps && for dir in */; do [ -f \"$dir/package.json\" ] && (cd \"$dir\" && npm test) || true; done",
+    "test:agents": "python3 scripts/test_all_systems.py",
+    "health-check": "~/.claude/scripts/claude-health-check",
+    "start-mcp": "~/.claude/scripts/start_mcp_ecosystem.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mojave-Research-Inc/Claude-MCP-Agents.git"
+  },
+  "keywords": [
+    "claude",
+    "mcp",
+    "model-context-protocol",
+    "ai",
+    "agents",
+    "orchestration",
+    "anthropic"
+  ],
+  "author": "Mojave Research Inc.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Mojave-Research-Inc/Claude-MCP-Agents/issues"
+  },
+  "homepage": "https://github.com/Mojave-Research-Inc/Claude-MCP-Agents#readme",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "latest",
+    "mcp-server-filesystem": "latest",
+    "mcp-server-memory": "latest"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}

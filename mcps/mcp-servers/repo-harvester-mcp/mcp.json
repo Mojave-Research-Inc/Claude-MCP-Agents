@@ -1,0 +1,1 @@
+{ "name": "Repo Harvester MCP", "version": "0.1.0", "server": { "command": "mcp-harvester" } }

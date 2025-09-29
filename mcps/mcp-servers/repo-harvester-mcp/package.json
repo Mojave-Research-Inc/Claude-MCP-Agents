@@ -1,0 +1,32 @@
+{
+  "name": "repo-harvester-mcp",
+  "version": "0.1.0",
+  "type": "module",
+  "bin": {
+    "mcp-harvester": "dist/server.js"
+  },
+  "scripts": {
+    "build": "tsc -p .",
+    "start": "node dist/server.js",
+    "dev": "ts-node-esm src/server.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.18.1",
+    "ajv": "^8.17.1",
+    "better-sqlite3": "^9.6.0",
+    "cross-fetch": "^4.0.0",
+    "fast-glob": "^3.3.2",
+    "js-yaml": "^4.1.0",
+    "nanoid": "^5.0.7",
+    "spdx-correct": "^3.2.0",
+    "spdx-expression-parse": "^3.0.1",
+    "spdx-license-ids": "^3.0.16"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^24.5.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  }
+}

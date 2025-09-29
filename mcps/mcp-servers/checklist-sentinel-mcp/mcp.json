@@ -1,0 +1,10 @@
+{
+  "name": "Checklist Sentinel MCP",
+  "version": "0.1.0",
+  "description": "Checklist SSoT + Sentinel orchestration for orchestrators, workers, and verifiers.",
+  "server": {
+    "command": "checklist-sentinel-mcp",
+    "args": [],
+    "env": {}
+  }
+}

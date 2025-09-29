@@ -1,0 +1,250 @@
+{
+  "mcpServers": {
+    "aegispp": {
+      "command": "node",
+      "args": ["/root/.claude/mcp-servers/aegispp-mcp/dist/server.js"],
+      "env": {
+        "LOG_LEVEL": "INFO",
+        "NODE_PATH": "/root/.claude/mcp-servers/aegispp-mcp/node_modules",
+        "AEGIS_DB": "/root/.claude/mcp-servers/aegispp-mcp/aegis.db"
+      }
+    },
+    "brain-comprehensive": {
+      "command": "python3",
+      "args": ["/root/.claude/mcp-servers/brain-mcp-comprehensive.py"],
+      "env": {
+        "POSTGRES_URL": "postgresql://postgres:postgres@localhost:5432/brain_mcp",
+        "VECTOR_DIM": "1024",
+        "EMBED_MODEL": "text-embedding-3-large",
+        "MCP_SCAN_ROOTS": "/root/.claude/mcp-servers:/opt/mcp:/work/.mcp",
+        "LOG_LEVEL": "INFO",
+        "PYTHONPATH": "/root/.claude:/root/.claude/scripts"
+      }
+    },
+    "knowledge-manager": {
+      "command": "python3",
+      "args": ["/root/.claude/mcp-servers/knowledge-manager-mcp.py"],
+      "env": {
+        "LOG_LEVEL": "INFO",
+        "PYTHONPATH": "/root/.claude:/root/.claude/scripts"
+      }
+    },
+    "repo-harvester": {
+      "command": "python3",
+      "args": ["/root/.claude/mcp-servers/repo-harvester-mcp-python.py"],
+      "env": {
+        "LOG_LEVEL": "INFO",
+        "PYTHONPATH": "/root/.claude:/root/.claude/scripts"
+      }
+    },
+    "context-intelligence": {
+      "command": "python3",
+      "args": ["/root/.claude/mcp-servers/context-intelligence-server-fixed.py"],
+      "env": {
+        "LOG_LEVEL": "INFO",
+        "PYTHONPATH": "/root/.claude:/root/.claude/scripts"
+      }
+    },
+    "resource-monitor": {
+      "command": "python3",
+      "args": ["/root/.claude/mcp-servers/resource-monitoring-server-fixed.py"],
+      "env": {
+        "LOG_LEVEL": "INFO",
+        "PYTHONPATH": "/root/.claude:/root/.claude/scripts"
+      }
+    },
+    "checklist-sentinel": {
+      "command": "node",
+      "args": ["/root/.claude/mcp-servers/checklist-sentinel-mcp/dist/server.js"],
+      "env": {
+        "CHECKLIST_DB": "/root/.claude/checklist_sentinel.db",
+        "LOG_LEVEL": "INFO"
+      }
+    },
+    "agent-orchestration": {
+      "command": "python3",
+      "args": ["/root/.claude/mcp-servers/agent-orchestration-server-fixed.py"],
+      "env": {
+        "LOG_LEVEL": "INFO",
+        "PYTHONPATH": "/root/.claude:/root/.claude/scripts"
+      }
+    },
+    "security-architect": {
+      "command": "python3",
+      "args": ["/root/.claude/mcp-servers/security-architect-mcp.py"],
+      "env": {
+        "LOG_LEVEL": "INFO",
+        "PYTHONPATH": "/root/.claude:/root/.claude/scripts"
+      }
+    },
+    "appsec-reviewer": {
+      "command": "python3",
+      "args": ["/root/.claude/mcp-servers/appsec-reviewer-mcp.py"],
+      "env": {
+        "LOG_LEVEL": "INFO",
+        "PYTHONPATH": "/root/.claude:/root/.claude/scripts"
+      }
+    },
+    "backend-implementer": {
+      "command": "python3",
+      "args": ["/root/.claude/mcp-servers/backend-implementer-mcp.py"],
+      "env": {
+        "LOG_LEVEL": "INFO",
+        "PYTHONPATH": "/root/.claude:/root/.claude/scripts"
+      }
+    },
+    "frontend-implementer": {
+      "command": "python3",
+      "args": ["/root/.claude/mcp-servers/frontend-implementer-mcp.py"],
+      "env": {
+        "LOG_LEVEL": "INFO",
+        "PYTHONPATH": "/root/.claude:/root/.claude/scripts"
+      }
+    },
+    "database-migration": {
+      "command": "python3",
+      "args": ["/root/.claude/mcp-servers/database-migration-mcp.py"],
+      "env": {
+        "LOG_LEVEL": "INFO",
+        "PYTHONPATH": "/root/.claude:/root/.claude/scripts"
+      }
+    },
+    "test-automator": {
+      "command": "python3",
+      "args": ["/root/.claude/mcp-servers/test-automator-mcp.py"],
+      "env": {
+        "LOG_LEVEL": "INFO",
+        "PYTHONPATH": "/root/.claude:/root/.claude/scripts"
+      }
+    },
+    "test-engineer": {
+      "command": "python3",
+      "args": ["/root/.claude/mcp-servers/test-engineer-mcp.py"],
+      "env": {
+        "LOG_LEVEL": "INFO",
+        "PYTHONPATH": "/root/.claude:/root/.claude/scripts"
+      }
+    },
+    "performance-reliability": {
+      "command": "python3",
+      "args": ["/root/.claude/mcp-servers/performance-reliability-mcp.py"],
+      "env": {
+        "LOG_LEVEL": "INFO",
+        "PYTHONPATH": "/root/.claude:/root/.claude/scripts"
+      }
+    },
+    "observability-monitoring": {
+      "command": "python3",
+      "args": ["/root/.claude/mcp-servers/observability-monitoring-mcp.py"],
+      "env": {
+        "LOG_LEVEL": "INFO",
+        "PYTHONPATH": "/root/.claude:/root/.claude/scripts"
+      }
+    },
+    "cicd-engineer": {
+      "command": "python3",
+      "args": ["/root/.claude/mcp-servers/cicd-engineer-mcp.py"],
+      "env": {
+        "LOG_LEVEL": "INFO",
+        "PYTHONPATH": "/root/.claude:/root/.claude/scripts"
+      }
+    },
+    "architecture-design": {
+      "command": "python3",
+      "args": ["/root/.claude/mcp-servers/architecture-design-mcp.py"],
+      "env": {
+        "LOG_LEVEL": "INFO",
+        "PYTHONPATH": "/root/.claude:/root/.claude/scripts"
+      }
+    },
+    "python-uv-specialist": {
+      "command": "python3",
+      "args": ["/root/.claude/mcp-servers/python-uv-specialist-mcp.py"],
+      "env": {
+        "LOG_LEVEL": "INFO",
+        "PYTHONPATH": "/root/.claude:/root/.claude/scripts"
+      }
+    },
+    "general-purpose": {
+      "command": "python3",
+      "args": ["/root/.claude/mcp-servers/general-purpose-mcp.py"],
+      "env": {
+        "LOG_LEVEL": "INFO",
+        "PYTHONPATH": "/root/.claude:/root/.claude/scripts"
+      }
+    },
+    "arbiter": {
+      "command": "node",
+      "args": ["/root/.claude/mcp-servers/arbiter-mcp/dist/server.js"],
+      "env": {
+        "LOG_LEVEL": "INFO"
+      }
+    },
+    "ctx-intel": {
+      "command": "node",
+      "args": ["/root/.claude/mcp-servers/ctx-intel-mcp/dist/server.js"],
+      "env": {
+        "LOG_LEVEL": "INFO"
+      }
+    },
+    "km": {
+      "command": "node",
+      "args": ["/root/.claude/mcp-servers/km-mcp/dist/server.js"],
+      "env": {
+        "LOG_LEVEL": "INFO"
+      }
+    },
+    "resmon": {
+      "command": "node",
+      "args": ["/root/.claude/mcp-servers/resmon-mcp/dist/server.js"],
+      "env": {
+        "LOG_LEVEL": "INFO"
+      }
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"],
+      "env": {
+        "LOG_LEVEL": "INFO"
+      }
+    },
+    "open-websearch": {
+      "command": "npx",
+      "args": ["-y", "open-websearch@latest"],
+      "env": {
+        "MODE": "stdio",
+        "DEFAULT_SEARCH_ENGINE": "duckduckgo",
+        "ALLOWED_SEARCH_ENGINES": "duckduckgo,bing,brave",
+        "LOG_LEVEL": "INFO"
+      }
+    },
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"],
+      "env": {
+        "LOG_LEVEL": "INFO"
+      }
+    },
+    "deepwiki": {
+      "command": "npx",
+      "args": ["-y", "mcp-deepwiki@latest"],
+      "env": {
+        "LOG_LEVEL": "INFO"
+      }
+    },
+    "filesystem": {
+      "command": "mcp-server-filesystem",
+      "args": ["/root"],
+      "env": {
+        "LOG_LEVEL": "INFO"
+      }
+    },
+    "memory": {
+      "command": "mcp-server-memory",
+      "args": [],
+      "env": {
+        "LOG_LEVEL": "INFO"
+      }
+    }
+  }
+}

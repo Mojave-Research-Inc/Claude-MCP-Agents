@@ -1,0 +1,19 @@
+license_allow: [MIT, Apache-2.0, BSD-2-Clause, BSD-3-Clause, MPL-2.0]
+license_deny: [GPL-2.0, GPL-3.0, AGPL-3.0, SSPL-1.0]
+copyleft_mode: deny_all  # allow_weak | deny_all | project_is_gpl
+providers:
+  github:
+    token_env: GITHUB_TOKEN
+    search:
+      min_stars: 50
+      updated_within_days: 365
+integration:
+  strategy: vendor   # vendor | subtree | package
+  target_repo_path: ./target-repo     # local path to target checkout
+  vendor_dir: third_party
+quality_weights:
+  relevance: 0.5
+  maintenance: 0.2
+  tests: 0.15
+  docs: 0.05
+  popularity: 0.1

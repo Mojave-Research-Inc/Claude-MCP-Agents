@@ -1,0 +1,8 @@
+{
+  "name": "Aegis++ Orchestrator MCP",
+  "version": "0.1.0",
+  "server": {
+    "command": "mcp-aegispp"
+  },
+  "description": "Production-ready orchestrator with HTN+ToT planning, GraphRAG, contextual bandit routing, MAD judging, and SLSA attestations"
+}
