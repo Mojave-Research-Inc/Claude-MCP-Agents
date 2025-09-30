@@ -1,58 +1,108 @@
-# Claude MCP & Agents
+# Claude MCP & Agents v2.0
 
-Complete collection of Model Context Protocol (MCP) servers and specialized agents for Claude Code.
+Complete collection of Model Context Protocol (MCP) servers and specialized agents for Claude Code CLI.
 
-## Overview
+## 🚀 Overview
 
-This repository contains a comprehensive suite of MCP servers and agents designed to enhance Claude Code with advanced capabilities including:
+This repository contains a comprehensive suite of MCP servers and agents designed to enhance Claude Code CLI with advanced capabilities including:
 
 - **50+ Specialized Agents**: Domain-specific agents for architecture, security, development, testing, and more
 - **25+ MCP Servers**: Advanced context management, orchestration, and tool integration
 - **Unified Brain System**: Persistent memory and knowledge management across sessions
 - **Intelligent Orchestration**: Parallel agent execution with dependency management
+- **Comprehensive Health Checks**: Built-in validation and diagnostics
+- **Easy Installation**: Automated setup with proper error handling
 
-## Quick Start
+## 📋 Prerequisites
 
-### Automated Installation
+Before installation, ensure your system meets these requirements:
+
+- **Operating System**: Linux (Ubuntu 18.04+, CentOS 7+, or equivalent)
+- **Python**: 3.8+ with pip
+- **Node.js**: 18.0+ with npm
+- **Memory**: Minimum 2GB RAM (4GB+ recommended)
+- **Disk Space**: At least 500MB free space
+- **Internet**: Required for API communication and package downloads
+
+## 🛠️ Installation
+
+### Quick Installation
 
 ```bash
 # Clone the repository
 git clone https://github.com/Mojave-Research-Inc/Claude-MCP-Agents.git
 cd Claude-MCP-Agents
 
-# Run the installer
+# Run the automated installer
 ./install.sh
 ```
 
-### Manual Installation with Claude Code
+### Installation Options
 
-If you're using Claude Code, simply ask Claude to install everything:
+```bash
+# Check system requirements only
+./install.sh --check
 
+# Show help
+./install.sh --help
+
+# Show version
+./install.sh --version
 ```
-Claude, please read the README.md in this repository and install all the MCP servers and agents according to the instructions.
-```
 
-## Components
+### Manual Installation Steps
+
+If you prefer manual installation or need to troubleshoot:
+
+1. **Install Claude Code CLI**:
+   ```bash
+   npm install -g @anthropic-ai/claude-code
+   ```
+
+2. **Install Python dependencies**:
+   ```bash
+   pip3 install --user mcp psutil numpy aiofiles httpx pydantic
+   ```
+
+3. **Install Node.js dependencies**:
+   ```bash
+   npm install -g @modelcontextprotocol/sdk mcp-server-filesystem mcp-server-memory
+   ```
+
+4. **Run the installer**:
+   ```bash
+   ./install.sh
+   ```
+
+## 📁 Components
 
 ### MCP Servers
 
-| Server | Description | Language |
-|--------|-------------|----------|
-| `agent-orchestration` | Orchestrates complex workflows across multiple agents | Python |
-| `checklist-sentinel` | Work tracking and progress management | Node.js |
-| `knowledge-manager` | Knowledge persistence and retrieval | Python |
-| `brain-comprehensive` | Hybrid search and context building | Python |
-| `context-intelligence` | AI-powered synthesis and planning | Python |
-| `resource-monitor` | System resource optimization | Python |
-| `repo-harvester` | External resource discovery | Python |
-| `security-architect` | Security analysis and threat modeling | Python |
-| `backend-implementer` | Backend service implementation | Python |
-| `frontend-implementer` | Frontend development | Python |
-| `test-automator` | Automated testing | Python |
-| `database-migration` | Database schema management | Python |
-| `performance-reliability` | Performance optimization | Python |
-| `cicd-engineer` | CI/CD pipeline configuration | Python |
-| `python-uv-specialist` | Python with uv package management | Python |
+The system includes 25+ MCP servers providing various capabilities:
+
+| Server | Description | Language | Status |
+|--------|-------------|----------|--------|
+| `agent-orchestration` | Orchestrates complex workflows across multiple agents | Python | ✅ Active |
+| `checklist-sentinel` | Work tracking and progress management | Node.js | ✅ Active |
+| `knowledge-manager` | Knowledge persistence and retrieval | Python | ✅ Active |
+| `brain-comprehensive` | Hybrid search and context building | Python | ✅ Active |
+| `context-intelligence` | AI-powered synthesis and planning | Python | ✅ Active |
+| `resource-monitor` | System resource optimization | Python | ✅ Active |
+| `repo-harvester` | External resource discovery | Python | ✅ Active |
+| `security-architect` | Security analysis and threat modeling | Python | ✅ Active |
+| `backend-implementer` | Backend service implementation | Python | ✅ Active |
+| `frontend-implementer` | Frontend development | Python | ✅ Active |
+| `test-automator` | Automated testing | Python | ✅ Active |
+| `database-migration` | Database schema management | Python | ✅ Active |
+| `performance-reliability` | Performance optimization | Python | ✅ Active |
+| `cicd-engineer` | CI/CD pipeline configuration | Python | ✅ Active |
+| `python-uv-specialist` | Python with uv package management | Python | ✅ Active |
+| `filesystem` | File system operations | Node.js | ✅ Active |
+| `memory` | Memory management | Node.js | ✅ Active |
+| `sequential-thinking` | Sequential reasoning | Node.js | ✅ Active |
+| `open-websearch` | Web search capabilities | Node.js | ✅ Active |
+| `context7` | Context management | Node.js | ✅ Active |
+| `deepwiki` | Wikipedia integration | Node.js | ✅ Active |
 
 ### Specialized Agents
 
@@ -143,45 +193,84 @@ npm install -g @modelcontextprotocol/sdk mcp-server-filesystem mcp-server-memory
 └── claude_brain.db     # Agent coordination
 ```
 
-## Usage Examples
+## 🚀 Usage Examples
+
+### Health Check
+
+After installation, verify everything is working:
+
+```bash
+# Run comprehensive health check
+~/.claude/scripts/claude-health-check
+
+# Or use the Python version for detailed output
+python3 ~/.claude/scripts/claude-health-check.py
+
+# Validate MCP servers specifically
+python3 ~/.claude/scripts/validate-mcp-servers.py
+```
+
+### Service Management
+
+```bash
+# Start all services
+~/.claude/claude-services start
+
+# Check service status
+~/.claude/claude-services status
+
+# Stop all services
+~/.claude/claude-services stop
+
+# View service logs
+~/.claude/claude-services logs
+```
 
 ### Using MCP Servers
 
-```python
+MCP servers are automatically available in Claude Code CLI. You can interact with them directly:
+
+```bash
+# Start Claude Code CLI
+claude
+
+# In Claude Code, you can now use MCP servers
 # Example: Using the knowledge manager
-from mcp import Client
-
-client = Client("knowledge-manager")
-await client.upsert_fact(
-    body="Important project information",
-    kind="assertion",
-    source="project_docs"
-)
-
-results = await client.search_facts(query="project information")
 ```
 
-### Launching Agents
+### Agent Usage
 
-In Claude Code, agents can be launched using natural language:
+Agents are available through Claude Code CLI and can be invoked naturally:
 
 ```
 Claude, use the backend-implementer agent to create a REST API for user management.
 ```
 
-Or programmatically:
-
 ```
 Claude, launch the orchestrator agent to build a complete web application with authentication, database, and testing.
 ```
-
-### Parallel Agent Execution
 
 ```
 Claude, run these agents in parallel:
 1. security-architect to analyze the threat model
 2. test-automator to create test suites
 3. performance-reliability to optimize the system
+```
+
+### Advanced Usage
+
+```bash
+# List all available agents
+ls ~/.claude/agents/
+
+# View agent configuration
+cat ~/.claude/agents/architecture-design.md
+
+# Check MCP server status
+python3 ~/.claude/scripts/validate-mcp-servers.py --json
+
+# View installation logs
+cat ~/.claude/install.log
 ```
 
 ## Advanced Features
@@ -209,17 +298,51 @@ Work sessions are tracked and can be resumed:
 - Interrupted tasks can be continued
 - Knowledge is preserved across sessions
 
-## Troubleshooting
+## 🔧 Troubleshooting
 
 ### Common Issues
+
+#### Installation Problems
+
+**Claude Code CLI not found:**
+```bash
+# Check if Claude Code CLI is installed
+which claude
+claude --version
+
+# Install if missing
+npm install -g @anthropic-ai/claude-code
+```
+
+**Permission errors:**
+```bash
+# Fix permissions for scripts
+chmod +x ~/.claude/scripts/*.sh
+chmod +x ~/.claude/scripts/*.py
+chmod +x ~/.claude/mcp-servers/*.py
+```
+
+**Python dependencies missing:**
+```bash
+# Reinstall Python dependencies
+pip3 install --user -r requirements.txt
+
+# Or install individually
+pip3 install --user mcp psutil numpy aiofiles httpx pydantic
+```
+
+#### Runtime Issues
 
 **MCP servers not starting:**
 ```bash
 # Check MCP server status
 ~/.claude/scripts/claude-health-check
 
-# Restart MCP ecosystem
-~/.claude/scripts/start_mcp_ecosystem.sh
+# Validate MCP servers
+python3 ~/.claude/scripts/validate-mcp-servers.py
+
+# Restart services
+~/.claude/claude-services restart
 ```
 
 **Agents not found:**
@@ -227,17 +350,88 @@ Work sessions are tracked and can be resumed:
 # Verify agent installation
 ls ~/.claude/agents/
 
-# Re-register agents
-~/.claude/scripts/register-agents.sh
+# Check agent file format
+head -n 20 ~/.claude/agents/architecture-design.md
 ```
 
 **Database issues:**
 ```bash
 # Check database integrity
 sqlite3 ~/.claude/global_brain.db "PRAGMA integrity_check;"
+sqlite3 ~/.claude/unified_brain.db "PRAGMA integrity_check;"
+sqlite3 ~/.claude/checklist.db "PRAGMA integrity_check;"
+sqlite3 ~/.claude/claude_brain.db "PRAGMA integrity_check;"
 
 # Reset databases (backup first!)
-~/.claude/scripts/reset-databases.sh
+cp ~/.claude/*.db ~/.claude/backups/
+rm ~/.claude/*.db
+./install.sh  # Reinstall to recreate databases
+```
+
+#### Configuration Issues
+
+**MCP configuration errors:**
+```bash
+# Validate JSON syntax
+python3 -m json.tool ~/.claude/.mcp.json
+
+# Check server paths
+grep -r "command" ~/.claude/.mcp.json
+```
+
+**Environment variables:**
+```bash
+# Check environment configuration
+cat ~/.claude/.env
+
+# Verify Python path
+echo $PYTHONPATH
+```
+
+### Getting Help
+
+1. **Check the logs**: `cat ~/.claude/install.log`
+2. **Run health check**: `~/.claude/scripts/claude-health-check`
+3. **Validate servers**: `python3 ~/.claude/scripts/validate-mcp-servers.py`
+4. **Check system requirements**: `./install.sh --check`
+
+## 🗑️ Uninstallation
+
+### Automated Uninstallation
+
+```bash
+# Run the uninstall script
+~/.claude/scripts/uninstall.sh
+```
+
+### Manual Uninstallation
+
+```bash
+# Remove Claude MCP & Agents components
+rm -rf ~/.claude/agents
+rm -rf ~/.claude/mcp-servers
+rm -rf ~/.claude/scripts
+rm -f ~/.claude/.mcp.json
+rm -f ~/.claude/.env
+rm -f ~/.claude/*.db
+
+# Remove Claude Code CLI (optional)
+npm uninstall -g @anthropic-ai/claude-code
+
+# Remove global MCP packages (optional)
+npm uninstall -g @modelcontextprotocol/sdk
+npm uninstall -g mcp-server-filesystem
+npm uninstall -g mcp-server-memory
+```
+
+### Backup and Restore
+
+```bash
+# Create backup before uninstalling
+cp -r ~/.claude ~/.claude-backup-$(date +%Y%m%d)
+
+# Restore from backup
+cp -r ~/.claude-backup-YYYYMMDD/* ~/.claude/
 ```
 
 ## Contributing

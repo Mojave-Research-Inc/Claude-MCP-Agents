@@ -13,17 +13,35 @@ import hashlib
 import time
 import math
 import struct
+import logging
 from pathlib import Path
 from typing import Dict, List, Any, Optional, Tuple
 from datetime import datetime
-import yaml
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
 
 # Add parent directory for imports
 sys.path.append(str(Path(__file__).parent.parent))
 
-from mcp.server import Server
-from mcp.server.stdio import stdio_server
-from mcp.types import Tool, TextContent
+try:
+    from mcp.server import Server
+    from mcp.server.stdio import stdio_server
+    from mcp.types import Tool, TextContent
+except ImportError as e:
+    logger.error(f"Failed to import MCP libraries: {e}")
+    logger.error("Please install MCP dependencies: pip install mcp")
+    sys.exit(1)
+
+try:
+    import yaml
+except ImportError:
+    logger.warning("PyYAML not available, YAML features will be limited")
+    yaml = None
 
 # MCP Server
 app = Server("knowledge-manager")
@@ -41,11 +59,16 @@ class KnowledgeDB:
 
     def init_db(self):
         """Initialize database schema."""
-        conn = sqlite3.connect(self.db_path)
-        cursor = conn.cursor()
+        try:
+            conn = sqlite3.connect(self.db_path)
+            cursor = conn.cursor()
 
-        # Enable WAL mode
-        cursor.execute('PRAGMA journal_mode=WAL')
+            # Enable WAL mode
+            cursor.execute('PRAGMA journal_mode=WAL')
+            logger.info(f"Initialized database: {self.db_path}")
+        except sqlite3.Error as e:
+            logger.error(f"Failed to initialize database: {e}")
+            raise
 
         # Canonical entities
         cursor.execute('''
@@ -761,20 +784,28 @@ async def call_tool(name: str, arguments: Dict[str, Any]) -> List[TextContent]:
 
 async def main():
     """Run the MCP server."""
-    print("🧠 Knowledge Manager MCP Server starting...", file=sys.stderr)
-    print(f"📊 Database: {DB_PATH}", file=sys.stderr)
-    print(f"⚙️  Policies: {POLICIES_PATH}", file=sys.stderr)
-    print("✅ Knowledge Manager MCP Server ready", file=sys.stderr)
+    try:
+        logger.info("🧠 Knowledge Manager MCP Server starting...")
+        logger.info(f"📊 Database: {DB_PATH}")
+        logger.info(f"⚙️  Policies: {POLICIES_PATH}")
+        
+        # Initialize database
+        global db
+        db = KnowledgeDB(DB_PATH)
+        
+        logger.info("✅ Knowledge Manager MCP Server ready")
 
-    async with stdio_server() as streams:
-        await app.run(streams[0], streams[1], app.create_initialization_options())
+        async with stdio_server() as streams:
+            await app.run(streams[0], streams[1], app.create_initialization_options())
+            
+    except Exception as e:
+        logger.error(f"Failed to start Knowledge Manager MCP Server: {e}")
+        sys.exit(1)
 
 if __name__ == "__main__":
     # Check for yaml import
-    try:
-        import yaml
-    except ImportError:
-        print("Warning: PyYAML not available, using default policies", file=sys.stderr)
+    if yaml is None:
+        logger.warning("PyYAML not available, using default policies")
         # Create a simple yaml loader
         class SimpleYAML:
             @staticmethod
@@ -782,4 +813,10 @@ if __name__ == "__main__":
                 return {}
         yaml = SimpleYAML()
 
-    asyncio.run(main())
+    try:
+        asyncio.run(main())
+    except KeyboardInterrupt:
+        logger.info("Knowledge Manager MCP Server stopped by user")
+    except Exception as e:
+        logger.error(f"Knowledge Manager MCP Server failed: {e}")
+        sys.exit(1)
