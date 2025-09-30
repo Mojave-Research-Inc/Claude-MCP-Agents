@@ -1,15 +1,21 @@
 {
   "name": "claude-mcp-agents",
-  "version": "1.0.0",
-  "description": "Complete collection of Model Context Protocol (MCP) servers and specialized agents for Claude Code",
+  "version": "2.0.0",
+  "description": "Complete collection of Model Context Protocol (MCP) servers and specialized agents for Claude Code CLI",
   "main": "install.sh",
   "scripts": {
     "install": "./install.sh",
+    "install:check": "./install.sh --check",
     "test": "echo \"Run tests with: npm run test:mcp && npm run test:agents\"",
-    "test:mcp": "cd mcps && for dir in */; do [ -f \"$dir/package.json\" ] && (cd \"$dir\" && npm test) || true; done",
+    "test:mcp": "cd mcps/mcp-servers && for dir in *-mcp/; do [ -f \"$dir/package.json\" ] && (cd \"$dir\" && npm test) || true; done",
     "test:agents": "python3 scripts/test_all_systems.py",
-    "health-check": "~/.claude/scripts/claude-health-check",
-    "start-mcp": "~/.claude/scripts/start_mcp_ecosystem.sh"
+    "health-check": "$HOME/.claude/scripts/claude-health-check",
+    "start-mcp": "$HOME/.claude/scripts/services_control.sh start",
+    "stop-mcp": "$HOME/.claude/scripts/services_control.sh stop",
+    "status-mcp": "$HOME/.claude/scripts/services_control.sh status",
+    "uninstall": "$HOME/.claude/scripts/uninstall.sh",
+    "lint": "find . -name '*.py' -exec python3 -m flake8 {} +",
+    "format": "find . -name '*.py' -exec python3 -m black {} +"
   },
   "repository": {
     "type": "git",
@@ -22,7 +28,9 @@
     "ai",
     "agents",
     "orchestration",
-    "anthropic"
+    "anthropic",
+    "claude-code",
+    "cli"
   ],
   "author": "Mojave Research Inc.",
   "license": "MIT",
@@ -31,16 +39,27 @@
   },
   "homepage": "https://github.com/Mojave-Research-Inc/Claude-MCP-Agents#readme",
   "dependencies": {
-    "@modelcontextprotocol/sdk": "latest",
-    "mcp-server-filesystem": "latest",
-    "mcp-server-memory": "latest"
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "mcp-server-filesystem": "^1.0.0",
+    "mcp-server-memory": "^1.0.0",
+    "@modelcontextprotocol/server-sequential-thinking": "^1.0.0",
+    "open-websearch": "^1.0.0",
+    "@upstash/context7-mcp": "^1.0.0",
+    "mcp-deepwiki": "^1.0.0"
   },
   "devDependencies": {
-    "typescript": "^5.0.0",
-    "@types/node": "^20.0.0"
+    "typescript": "^5.3.0",
+    "@types/node": "^20.10.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0"
   },
   "engines": {
     "node": ">=18.0.0",
     "npm": ">=9.0.0"
-  }
+  },
+  "os": [
+    "linux"
+  ],
+  "preferGlobal": true
 }
