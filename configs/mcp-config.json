@@ -173,34 +173,6 @@
         "PYTHONPATH": "$HOME/.claude:$HOME/.claude/scripts"
       }
     },
-    "arbiter": {
-      "command": "node",
-      "args": ["$HOME/.claude/mcp-servers/arbiter-mcp/dist/server.js"],
-      "env": {
-        "LOG_LEVEL": "INFO"
-      }
-    },
-    "ctx-intel": {
-      "command": "node",
-      "args": ["$HOME/.claude/mcp-servers/ctx-intel-mcp/dist/server.js"],
-      "env": {
-        "LOG_LEVEL": "INFO"
-      }
-    },
-    "km": {
-      "command": "node",
-      "args": ["$HOME/.claude/mcp-servers/km-mcp/dist/server.js"],
-      "env": {
-        "LOG_LEVEL": "INFO"
-      }
-    },
-    "resmon": {
-      "command": "node",
-      "args": ["$HOME/.claude/mcp-servers/resmon-mcp/dist/server.js"],
-      "env": {
-        "LOG_LEVEL": "INFO"
-      }
-    },
     "sequential-thinking": {
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"],

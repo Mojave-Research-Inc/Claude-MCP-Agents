@@ -80,29 +80,52 @@ If you prefer manual installation or need to troubleshoot:
 
 The system includes 25+ MCP servers providing various capabilities:
 
-| Server | Description | Language | Status |
-|--------|-------------|----------|--------|
-| `agent-orchestration` | Orchestrates complex workflows across multiple agents | Python | ✅ Active |
-| `checklist-sentinel` | Work tracking and progress management | Node.js | ✅ Active |
-| `knowledge-manager` | Knowledge persistence and retrieval | Python | ✅ Active |
-| `brain-comprehensive` | Hybrid search and context building | Python | ✅ Active |
-| `context-intelligence` | AI-powered synthesis and planning | Python | ✅ Active |
-| `resource-monitor` | System resource optimization | Python | ✅ Active |
-| `repo-harvester` | External resource discovery | Python | ✅ Active |
-| `security-architect` | Security analysis and threat modeling | Python | ✅ Active |
-| `backend-implementer` | Backend service implementation | Python | ✅ Active |
-| `frontend-implementer` | Frontend development | Python | ✅ Active |
-| `test-automator` | Automated testing | Python | ✅ Active |
-| `database-migration` | Database schema management | Python | ✅ Active |
-| `performance-reliability` | Performance optimization | Python | ✅ Active |
-| `cicd-engineer` | CI/CD pipeline configuration | Python | ✅ Active |
-| `python-uv-specialist` | Python with uv package management | Python | ✅ Active |
-| `filesystem` | File system operations | Node.js | ✅ Active |
-| `memory` | Memory management | Node.js | ✅ Active |
-| `sequential-thinking` | Sequential reasoning | Node.js | ✅ Active |
-| `open-websearch` | Web search capabilities | Node.js | ✅ Active |
-| `context7` | Context management | Node.js | ✅ Active |
-| `deepwiki` | Wikipedia integration | Node.js | ✅ Active |
+#### Core Infrastructure Servers (Python)
+| Server | Description | Status |
+|--------|-------------|--------|
+| `brain-comprehensive` | RAG + Vector search with pgvector, auto-MCP discovery | ✅ Active |
+| `knowledge-manager` | Knowledge persistence and retrieval across sessions | ✅ Active |
+| `context-intelligence` | AI-powered context synthesis and planning | ✅ Active |
+| `agent-orchestration` | Orchestrates complex workflows across multiple agents | ✅ Active |
+| `resource-monitor` | System resource monitoring and optimization | ✅ Active |
+| `repo-harvester` | External resource discovery and integration | ✅ Active |
+
+#### Development Servers (Python)
+| Server | Description | Status |
+|--------|-------------|--------|
+| `backend-implementer` | Backend services and API implementation | ✅ Active |
+| `frontend-implementer` | Frontend components and UI development | ✅ Active |
+| `database-migration` | Database schema management and migrations | ✅ Active |
+| `architecture-design` | System architecture planning and design patterns | ✅ Active |
+| `python-uv-specialist` | Python development with uv package management | ✅ Active |
+| `general-purpose` | General-purpose development tasks | ✅ Active |
+
+#### Quality & Security Servers (Python)
+| Server | Description | Status |
+|--------|-------------|--------|
+| `test-automator` | Automated test suite generation | ✅ Active |
+| `test-engineer` | Testing strategies and quality assurance | ✅ Active |
+| `security-architect` | Security architecture and controls | ✅ Active |
+| `appsec-reviewer` | Application security review and vulnerability scanning | ✅ Active |
+
+#### Operations Servers (Python)
+| Server | Description | Status |
+|--------|-------------|--------|
+| `performance-reliability` | Performance profiling and reliability patterns | ✅ Active |
+| `observability-monitoring` | Monitoring solutions and alerting | ✅ Active |
+| `cicd-engineer` | CI/CD pipelines and deployment strategies | ✅ Active |
+
+#### Node.js Servers
+| Server | Description | Status |
+|--------|-------------|--------|
+| `aegispp` | HTN planning, contextual bandit routing, GraphRAG integration | ✅ Active |
+| `checklist-sentinel` | Work tracking and progress management | ✅ Active |
+| `sequential-thinking` | Sequential reasoning capabilities | ✅ Active |
+| `open-websearch` | Web search with multiple search engines | ✅ Active |
+| `context7` | Context management and documentation | ✅ Active |
+| `deepwiki` | Wikipedia integration and knowledge access | ✅ Active |
+| `filesystem` | File system operations (MCP official) | ✅ Active |
+| `memory` | Memory management (MCP official) | ✅ Active |
 
 ### Specialized Agents
 
